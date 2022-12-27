@@ -28,14 +28,16 @@ nltk.download('punkt')
 
 ## How To Use
 
-1) Download the [e-SNLI](https://github.com/OanaMariaCamburu/e-SNLI/tree/master/dataset), 
-[WinoGrande](https://storage.googleapis.com/ai2-mosaic/public/winogrande/winogrande_1.1.zip) 
-and [ComVE](https://github.com/wangcunxiang/SemEval2020-Task4-Commonsense-Validation-and-Explanation/tree/master/ALL%20data) 
-data into their corresponding Data folders.
+1) Clone or download this repository and open the containing folder.
 
-2) Execute the data processing scripts in each Data folder to generate the train/dev/test data files.
+2) Manually download the e-SNLI ([link](https://github.com/OanaMariaCamburu/e-SNLI/tree/master/dataset)), 
+WinoGrande ([link](https://storage.googleapis.com/ai2-mosaic/public/winogrande/winogrande_1.1.zip)) 
+and ComVE ([link](https://github.com/wangcunxiang/SemEval2020-Task4-Commonsense-Validation-and-Explanation/tree/master/ALL%20data)) 
+datasets into their corresponding folders, e.g.: ```Data/e-SNLI```. 
 
-3) To train a model run:
+3) Execute the data processing scripts in each Data folder to generate the train/dev/test data files.
+
+4) To train a model run:
 ```
 python main.py
 ```
