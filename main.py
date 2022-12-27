@@ -501,7 +501,7 @@ if __name__ == "__main__":
     parser.add_argument('--quick_evaluation', '-quick_eval',
                         action='store_true',
                         help='Quick evaluation for WG on WG_dev_nles_only')
-    parser.add_argument('--log_interval', '-log_int', type=int, default=200)
+    parser.add_argument('--log_interval', '-log_int', type=int, default=1000)
     parser.add_argument('--save_interval', '-save_int', type=int,
                         default=10e+10)
     parser.add_argument('--gpu_synch_file', '-gpu_synch', type=str,
@@ -533,7 +533,7 @@ if __name__ == "__main__":
                         help="Train batch size")
     parser.add_argument('--dev_b_size', '-dbs', type=int, default=20,
                         help="Dev batch size")
-    parser.add_argument('--beam_size', '-beam', type=int, default=1,
+    parser.add_argument('--beam_size', '-beam', type=int, default=3,
                         help="The beam size in beam search decoding "
                              "for NLE generation in evaluation.")
     parser.add_argument('--num_epochs', '-ep', type=int, default=1,
@@ -541,7 +541,7 @@ if __name__ == "__main__":
     parser.add_argument('--optimizer', choices=['adamw', 'sgd'],
                         default='adamw', help='weight optimizer')
     parser.add_argument('--scheduler', choices=[None, 'linear'],
-                        default=None, help='lr scheduler with warm-up')
+                        default='linear', help='lr scheduler with warm-up')
     parser.add_argument('--warmup_proportion', '-warm_prop', type=float,
                         default=0.1, help='proportion of training data'
                                           ' to warm-up the scheduler')
