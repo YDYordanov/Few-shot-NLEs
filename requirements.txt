@@ -1,0 +1,8 @@
+transformers
+tensorboardx
+gpuinfo
+sentencepiece
+jsonlines
+nltk
+tqdm
+wget

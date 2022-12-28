@@ -17,7 +17,7 @@ conda activate nles
 2) Install pytorch via its [official installation instructions for Anaconda](https://pytorch.org/get-started/locally/).
 3) Install via pip:
 ```
-pip install transformers tensorboardx gpuinfo sentencepiece jsonlines nltk tqdm
+pip install -r requirements.txt
 ```
 4) Finally, open python and execute:
 ```
