@@ -39,3 +39,12 @@ python download_and_process_data.py
 ```
 python main.py
 ```
+
+An example of multi-task learning on e-SNLI and WinoGrande with 50 NLEs:
+```
+python main.py --esnli_train_data_path=Data/e-SNLI/esnli_train.csv --ewg_train_data_path=Data/e-WG/train_50_nles.jsonl 
+--lm_name=t5-base --beam_size=3 
+--save_dir=saved_models/Experiment_1/Run_1 --exper_name=Experiment1 --log_interval=5000 -task=esnli+ewg 
+--num_epochs=2 --lr=1e-3 --scheduler=linear --train_b_size=16 --grad_accum_steps=2
+```
+Tip: use ```--grad_accum_steps``` to specify gradient accumulation (value between 1 and ```train_b_size```). It helps with fitting large models on a small GPU.
