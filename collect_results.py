@@ -11,7 +11,6 @@ import json
 import argparse
 import pprint
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 def get_dir_list(dirs):
@@ -49,7 +48,7 @@ def collect_results(dirs, data_files):
 
 
 def best_hyperparameters(dirs, selection_criterion=None, forced_metric=None,
-                         verbose=False, do_plot=False, silent=False):
+                         verbose=False, silent=False):
     exper_name = ''
     # Extract the configuration dictionaries
     all_directories = get_dir_list(dirs)
@@ -214,27 +213,6 @@ def best_hyperparameters(dirs, selection_criterion=None, forced_metric=None,
     if not silent:
         print('Best run:', best_run_folder)
 
-    if do_plot:
-        # Plot all metrics one by one
-        all_axes = range(values_array.ndim)
-        for column_id in all_axes:
-            print('Plotting', columns[column_id])
-            # min/max over the rest of the hyperparameters (note: axes=columns)
-            other_axes = tuple(set(all_axes)- {column_id})
-            if 'perplexity' in metric or 'ppl' in metric:
-                y_points = np.nanmin(values_array, axis=other_axes)
-            else:
-                y_points = np.nanmax(values_array, axis=other_axes)
-            plt.clf()  # Clear the plot
-            plt.plot(range(len(y_points)), y_points, linestyle='dotted')
-            # Rename x-axis scale by the hyperparameter values
-            plt.xticks(range(len(y_points)),
-                       column_dict_values[columns[column_id]])
-            plt.xlabel(columns[column_id])
-            plt.ylabel(metric)
-            plt.show()
-            plt.savefig('{}.png'.format(columns[column_id]))
-
     return {
         'selection_criterion': selection_criterion,
         'best_value': best_value,
@@ -256,11 +234,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "--verbose", '-v', action='store_true',
         help="print stuff")
-    parser.add_argument(
-        "--do_plot", '-plot', action='store_true',
-        help="plot the loss landscape")
     args = parser.parse_args()
 
     best_hyperparameters(
-        dirs=args.dirs, verbose=args.verbose, do_plot=args.do_plot,
+        dirs=args.dirs, verbose=args.verbose,
         selection_criterion=args.selection_criterion)
