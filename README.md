@@ -1,6 +1,7 @@
 # Few-shot-NLEs
 
-This is the code and dataset for the paper: [Few-Shot Out-of-Domain Transfer Learning of Natural Language Explanations](https://arxiv.org/abs/2112.06204).
+This is the code and dataset for the paper: [Few-Shot Out-of-Domain Transfer Learning of Natural Language
+Explanations in a Label-Abundant Setup](https://arxiv.org/abs/2112.06204).
 
 You can find the small-e-WinoGrande dataset in the folder with that name.
 
