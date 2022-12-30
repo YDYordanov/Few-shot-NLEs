@@ -5,7 +5,9 @@ Explanations in a Label-Abundant Setup](https://arxiv.org/abs/2112.06204).
 
 You can find the small-e-WinoGrande dataset in the folder with that name.
 
-Additional scripts and the Mechanical Turk data will be available by the end of 2022.
+You can find the raw Mechanical Turk data in the Results folder.
+
+Additional scripts will be available by the end of 2022.
 
 ## Installation instructions
 
@@ -27,7 +29,7 @@ nltk.download('punkt')
 ```
 
 
-## How To Use
+## How to use
 
 1) Clone or download this repository and open the containing folder.
 
@@ -49,3 +51,12 @@ python main.py --esnli_train_data_path=Data/e-SNLI/esnli_train.csv --ewg_train_d
 --num_epochs=2 --lr=1e-3 --scheduler=linear --train_b_size=16 --grad_accum_steps=2
 ```
 Tip: use ```--grad_accum_steps``` to specify gradient accumulation (value between 1 and ```train_b_size```). It helps with fitting large models on a small GPU.
+
+## How to reproduce the results
+
+The command below reproduces the human NLE evaluation results in Table 5 of the Appendix. 
+The script processes the raw Mechanical Turk data located in the Results folder.    
+
+```
+python create_mturk_results_table.py
+```
