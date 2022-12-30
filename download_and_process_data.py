@@ -15,11 +15,13 @@ def make_dir(dir_path):
     if not(os.path.exists(dir_path)):
         os.makedirs(dir_path)
 
+
 def open_csv_data(data_path):
     with open(data_path, 'r') as e_snli_file:
         reader = csv.DictReader(e_snli_file)
         data = list(reader)
     return data
+
 
 def process_comve_data(data_path, random_seed=9323280, remove_caps_examples=False,
                  drop_nles=False):
@@ -71,13 +73,15 @@ def process_comve_data(data_path, random_seed=9323280, remove_caps_examples=Fals
         final_selected_ids.append(current_id)
 
     return new_data, final_selected_ids
-    
+
+
 def write_comve_data(data_list_ordered_dict, data_path):
     with open(data_path, 'w') as f:
         writer = csv.DictWriter(
             f, delimiter=',', fieldnames=data_list_ordered_dict[0].keys())
         writer.writeheader()
         writer.writerows(data_list_ordered_dict)
+
 
 def download_esnli_data():
     print('1) Downloading e-SNLI...')
@@ -100,7 +104,8 @@ def download_esnli_data():
         data_file_path = 'Data/temp/e-SNLI/e-SNLI-master/dataset/' + file_name
         shutil.copy(data_file_path, data_folder)
     print('Data moved!')
-    
+
+
 def download_winogrande_data():
     print('1) Downloading WinoGrande...')
     make_dir('Data/temp/WinoGrande')
@@ -123,7 +128,8 @@ def download_winogrande_data():
         assert os.path.exists(data_file_path)
         shutil.copy(data_file_path, data_folder)
     print('Data moved!')
-    
+
+
 def download_comve_data():
     print('1) Downloading ComVE...')
     temp_folder = 'Data/temp/ComVE'
@@ -147,7 +153,8 @@ def download_comve_data():
         assert os.path.exists(data_file_path)
         shutil.copy(data_file_path, data_folder)
     print('Data moved!')
-    
+
+
 def reformat_esnli_data():
     print('\n4) Reformatting e-SNLI data...')
     esnli_folder = 'Data/e-SNLI/'
@@ -166,7 +173,8 @@ def reformat_esnli_data():
     os.remove(file1)
     os.remove(file2)
     print('e-SNLI data is ready!')
-    
+
+
 def reformat_winogrande_data():
     print('\n4) Reformatting WinoGrande data...')
     wg_folder = 'Data/e-WG/'
@@ -239,7 +247,8 @@ def reformat_winogrande_data():
         writer.write_all(train_data)
         
     print('WinoGrande data is ready!')
-    
+
+
 def reformat_comve_data():
     print('\n4) Reformatting ComVE data...')
     comve_folder = 'Data/ComVE/'
@@ -275,6 +284,7 @@ def reformat_comve_data():
     write_comve_data(test_nles_100, data_path=comve_folder+'test_100.csv')
     print('ComVE data is ready!')
 
+
 if __name__ == "__main__":
     # Frist, download all data in the correct directories via download_[]_data()
     # Second, create all data files based on the downloaded data together with the "small-e-WinoGrande" dataset
@@ -294,4 +304,3 @@ if __name__ == "__main__":
     shutil.rmtree('Data/temp')
     
     print('\nAll ready!\n')
-
