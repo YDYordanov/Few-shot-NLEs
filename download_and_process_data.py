@@ -280,16 +280,16 @@ if __name__ == "__main__":
     # Second, create all data files based on the downloaded data together with the "small-e-WinoGrande" dataset
     #  via reformat_[]_data()
     print('\nI: e-SNLI\n')
-    # download_esnli_data()
-    # reformat_esnli_data()
+    download_esnli_data()
+    reformat_esnli_data()
     
     print('\n\nII: WinoGrande\n')
     download_winogrande_data()
     reformat_winogrande_data()
     
     print('\n\nIII: ComVE\n')
-    # download_comve_data()
-    # reformat_comve_data()
+    download_comve_data()
+    reformat_comve_data()
     
     shutil.rmtree('Data/temp')
     
