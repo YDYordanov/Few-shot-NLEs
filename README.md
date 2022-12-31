@@ -60,3 +60,13 @@ The script processes the raw Mechanical Turk data located in the Results folder.
 ```
 python create_mturk_results_table.py
 ```
+
+The commands below execute the training of all models in Table 3 of the results, in three stages. Note: please wait for each script to finish running 
+before starting the next one due to model inter-dependence.
+
+```
+python run_experiments_first_stage.py -num_gpus=1
+python run_experiments_second_stage.py -num_gpus=1
+python run_experiments_third_stage.py -num_gpus=1
+```
+Tip: use ```-num_gpus``` to specify how many GPUs to use for training.
