@@ -1,5 +1,6 @@
 import os
 import csv
+import copy
 import zipfile
 import shutil
 import random
@@ -172,6 +173,24 @@ def reformat_esnli_data():
             writer.writerow(dat)
     os.remove(file1)
     os.remove(file2)
+    
+    # Create the e-SNLI+SNLI dataset
+    print('creating e-SNLI+SNLI dataset...')
+    data_size = len(data)
+    all_ids = list(range(data_size))
+    examples_without_nles = []
+    for idx in all_ids:
+        example = copy.deepcopy(data[idx])
+        example['Explanation_1'] = ''
+        examples_without_nles.append(example)
+    wt5_data = data + examples_without_nles
+    with open(esnli_folder+'esnli+snli_train.csv', 'w') as write_file:
+        writer = csv.DictWriter(write_file, fieldnames=list(data[0].keys()))
+        print('writing...')
+        writer.writeheader()
+        for dat in tqdm(wt5_data):
+            writer.writerow(dat)
+    
     print('e-SNLI data is ready!')
 
 
