@@ -187,7 +187,7 @@ def main(args):
     ]
 
     if 'ewg' in args.training_task:
-        wg_dev_nles_path = 'Data/e-WG/new_dev_nles_only.jsonl'
+        wg_dev_nles_path = 'Data/e-WG/dev_50_nles_only.jsonl'
         wg_dev_nle_loader = WT5Loader(
             data_paths=wg_dev_nles_path, tokenizer=tokenizer,
             input_length=args.input_length, batch_size=args.dev_b_size,
@@ -429,13 +429,13 @@ if __name__ == "__main__":
                         default='Data/e-SNLI/esnli_test.csv',
                         help="Path to the test data for e-SNLI")
     parser.add_argument('--ewg_train_data_path', type=str,
-                        default='Data/e-WG/new_train.jsonl',
+                        default='Data/e-WG/train.jsonl',
                         help="Path to the training data for e-WG")
     parser.add_argument('--ewg_dev_data_path', type=str,
-                        default='Data/e-WG/new_dev.jsonl',
+                        default='Data/e-WG/dev.jsonl',
                         help="Path to the dev data for e-WG")
     parser.add_argument('--ewg_test_data_path', type=str,
-                        default='Data/e-WG/dev.jsonl',
+                        default='Data/e-WG/test.jsonl',
                         help="Path to the test data for e-WG")
     parser.add_argument('--comve_train_data_path', type=str,
                         default='Data/ComVE/train_no_nles.csv',
