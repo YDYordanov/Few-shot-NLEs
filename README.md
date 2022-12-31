@@ -7,7 +7,6 @@ You can find the small-e-WinoGrande dataset in the folder with that name.
 
 You can find the raw Mechanical Turk data in the Results folder.
 
-Additional scripts will be available by the end of 2022.
 
 ## Installation instructions
 
