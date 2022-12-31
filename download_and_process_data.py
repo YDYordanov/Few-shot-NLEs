@@ -258,8 +258,9 @@ def reformat_comve_data():
 
     train_data, _ = process_comve_data(comve_folder+'train.csv', random_seed=45923)
 
-    clean_data, selected_ids = process_comve_data(
+    _, selected_ids = process_comve_data(
         comve_folder+'train.csv', random_seed=215050, remove_caps_examples=True)
+    os.remove(comve_folder+'train.csv')
     random.seed(4539834059)
     train_ids_1000 = random.sample(selected_ids, 1000)
     train_ids_50 = train_ids_1000[:50]
@@ -272,9 +273,11 @@ def reformat_comve_data():
     write_comve_data(train_50_nles_data, data_path=comve_folder+'train_50_nles.csv')
 
     dev_data, _ = process_comve_data(comve_folder+'dev.csv', random_seed=4354341)
+    os.remove(comve_folder+'dev.csv')
     write_comve_data(dev_data, data_path=comve_folder+'dev.csv')
 
     test_data, _ = process_comve_data(comve_folder+'test.csv', random_seed=98750435)
+    os.remove(comve_folder+'test.csv')
     write_comve_data(test_data, data_path=comve_folder+'test.csv')
     
     random.seed(5367894)
