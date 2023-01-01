@@ -91,3 +91,9 @@ The commands below generate the test result accuracies on the child datasets and
 python run_test_evaluate_best_models.py -num_gpus=1
 python create_table_test_results.py
 ```
+
+The command below generates NLEs from all models on 100 test instances. The generated NLEs are saved as 
+"predictions.jsonl" files located in the corresponding model directories.
+```
+python run_print_predictions.py -num_gpus=1
+```
