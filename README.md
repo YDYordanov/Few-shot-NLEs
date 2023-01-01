@@ -10,34 +10,38 @@ You can find the raw Mechanical Turk data in the Results folder.
 
 ## Installation instructions
 
-These instructions assume [Anaconda](https://www.anaconda.com).
+These instructions assume Anaconda ([link](https://www.anaconda.com)).
+
 1) Create a new Anaconda environment and activate it:
 ```
 conda create -n nles python numpy
 conda activate nles
 ```
+
 2) Install pytorch via its [official installation instructions for Anaconda](https://pytorch.org/get-started/locally/).
+
 3) Install via pip:
 ```
 pip install -r requirements.txt
 ```
-4) Finally, open python and execute:
+
+4) Clone or download this repository and open the containing folder.
+
+5) Open Python and execute:
 ```
 import nltk
 nltk.download('punkt')
 ```
 
-
-## How to use
-
-1) Clone or download this repository and open the containing folder.
-
-2) Download and prepare the data by running:
+6) Download and prepare the data by running:
 ```
 python download_and_process_data.py
 ```
 
-3) To train a model run:
+
+## How to use
+
+To train a model run:
 ```
 python main.py
 ```
