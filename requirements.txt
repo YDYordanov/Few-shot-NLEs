@@ -6,3 +6,6 @@ jsonlines
 nltk
 tqdm
 wget
+datasets
+bert_score
+pycocoevalcap
