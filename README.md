@@ -86,13 +86,8 @@ python run_experiments_third_stage.py -num_gpus=1
 ```
 Tip: use ```-num_gpus``` to specify how many GPUs to use for training.
 
-To generate the test result accuracies on the child datasets run:
-
+The commands below generate the test result accuracies on the child datasets and format them into a table.
 ```
 python run_test_evaluate_best_models.py -num_gpus=1
-```
-
-To print the test accuracy for each model in Table 3 run:
-```
 python create_table_test_results.py
 ```
