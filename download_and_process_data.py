@@ -292,8 +292,14 @@ def reformat_comve_data():
     write_comve_data(train_50_nles_data, data_path=comve_folder+'train_50_nles.csv')
 
     dev_data, _ = process_comve_data(comve_folder+'dev.csv', random_seed=4354341)
+    dev_data_no_nles = copy.deepcopy(dev_data)
+    for dat in dev_data_no_nles:
+        dat['Right Reason1'] = ''
+        dat['Right Reason2'] = ''
+        dat['Right Reason3'] = ''
     os.remove(comve_folder+'dev.csv')
     write_comve_data(dev_data, data_path=comve_folder+'dev.csv')
+    write_comve_data(dev_data_no_nles, data_path=comve_folder+'dev_no_nles.csv')
 
     test_data, _ = process_comve_data(comve_folder+'test.csv', random_seed=98750435)
     os.remove(comve_folder+'test.csv')
