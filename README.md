@@ -69,3 +69,9 @@ python run_experiments_second_stage.py -num_gpus=1
 python run_experiments_third_stage.py -num_gpus=1
 ```
 Tip: use ```-num_gpus``` to specify how many GPUs to use for training.
+
+To generate the test result accuracies on the child datasets run:
+
+```
+python run_test_evaluate_best_models.py -num_gpus=1
+```
