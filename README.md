@@ -53,11 +53,19 @@ Tip: use ```--grad_accum_steps``` to specify gradient accumulation (value betwee
 
 ## How to reproduce the results
 
-The command below reproduces the human NLE evaluation results in Table 5 of the Appendix. 
-The script processes the raw Mechanical Turk data located in the Results folder.    
+The command below reproduces the human NLE evaluation results in Table 5 of the Appendix, and, in particular, 
+the "NLE score" columns in Table 3 of the main paper. 
+The script processes the raw Mechanical Turk data located in the Results folder.
 
 ```
 python create_mturk_results_table.py
+```
+
+The command below reproduces the ComVE automatic NLE evaluation results in Table 3 of the main paper. 
+The script processes the NLE generations from all ComVE models (located in the "saved_models" folder).
+
+```
+python automatic_evaluation.py
 ```
 
 The commands below execute the training of all models in Table 3 of the results, in three stages. Note: please wait for each script to finish running 

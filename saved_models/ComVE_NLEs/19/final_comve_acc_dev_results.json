@@ -1,0 +1,1 @@
+{"teacher_loss": 0.08249142603948713, "full_loss": 0.08249147031143626, "nle_loss": 0.0006814165774594585, "teacher_perplexity": 1.0588450084363525, "nle_perplexity": 1.0004724335410426, "Accuracy": 0.832, "BLEU": 0}
