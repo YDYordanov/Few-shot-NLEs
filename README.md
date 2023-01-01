@@ -83,3 +83,8 @@ To generate the test result accuracies on the child datasets run:
 ```
 python run_test_evaluate_best_models.py -num_gpus=1
 ```
+
+To print the test accuracy for each model in Table 3 run:
+```
+python create_table_test_results.py
+```
